@@ -1,11 +1,57 @@
 import run from 'aocrunner';
+import { reader } from '../utils/read.js'
 
-const parseInput = (rawInput) => {};
+const parseInput = (rawInput) => {
+  const inputFile = reader('src/day01/input.txt')
+
+  return inputFile
+};
 
 const part1 = (rawInput) => {
-  const input = parseInput(rawInput);
-  console.log('dog!');
-  return;
+  
+  const extractNumbers = (input) => {
+    let output = []
+    
+    input.map((item) => {
+      let strippedOfLetters = item.replace(/[^0-9]/g, "")
+      output.push(strippedOfLetters)
+    })
+    
+    console.log(output)
+    return output
+  } 
+
+  const getFirstAndLast = (input) => {
+    let output = []
+    
+    input.map((item) => {
+      let first = item.slice(0,1)
+      let last = item.slice(-1)
+      let firstAndLast = `${first}${last}`
+      
+      output.push(parseInt(firstAndLast))
+    })
+    
+    console.log(output)
+    return output
+  }
+  
+  const addAllNumbers = (input) => {
+    let output = []
+
+    const initialValue = 0
+    output = input.reduce((acc, cur) => acc + cur, initialValue)
+
+    console.log(output)
+    return output
+  }
+
+  const data = parseInput(rawInput)
+  const extracted = extractNumbers(data)
+  const firstAndLast = getFirstAndLast(extracted)
+  const finalResult = addAllNumbers(firstAndLast)
+
+  return finalResult
 };
 
 const part2 = (rawInput) => {

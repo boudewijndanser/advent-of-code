@@ -6,9 +6,9 @@
     {
       "part1": {
         "solved": false,
-        "result": null,
+        "result": "54338",
         "attempts": [],
-        "time": null
+        "time": 9.015181
       },
       "part2": {
         "solved": false,
