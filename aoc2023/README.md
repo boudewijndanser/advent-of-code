@@ -11,7 +11,7 @@
 
 <!--SOLUTIONS-->
 
-[![Day](https://badgen.net/badge/01/%E2%98%85%E2%98%86/yellow)](src/day01)
+[![Day](https://badgen.net/badge/01/%E2%98%85%E2%98%85/green)](src/day01)
 [![Day](https://badgen.net/badge/02/%E2%98%85%E2%98%85/green)](src/day02)
 [![Day](https://badgen.net/badge/03/%E2%98%85%E2%98%86/yellow)](src/day03)
 [![Day](https://badgen.net/badge/04/%E2%98%85%E2%98%86/yellow)](src/day04)
@@ -69,9 +69,9 @@ yarn start 1
 
 ```
 Day 01
-Time part 1: 6.584ms
-Time part 2: -
-Both parts: 6.584ms
+Time part 1: -
+Time part 2: 110.721ms
+Both parts: 110.721ms
 ```
 
 ```
@@ -111,9 +111,9 @@ Both parts: -
 
 ```
 Day 07
-Time part 1: -
-Time part 2: 24.381ms
-Both parts: 24.381ms
+Time part 1: 10.395ms
+Time part 2: 7.587ms
+Both parts: 17.982ms
 ```
 
 ```
@@ -243,8 +243,8 @@ Both parts: -
 ```
 
 ```
-Total stars: 11/50
-Total time: 658.854ms
+Total stars: 12/50
+Total time: 756.591ms
 ```
 
 <!--/RESULTS-->
