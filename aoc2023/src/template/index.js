@@ -5,13 +5,15 @@ const parseInput = (rawInput) => rawInput
 const part1 = (rawInput) => {
   const input = parseInput(rawInput)
 
-  return
+  const answer1 = ''
+  return answer1
 }
 
 const part2 = (rawInput) => {
   const input = parseInput(rawInput)
 
-  return
+  const answer2 = ''
+  return answer2
 }
 
 run({
