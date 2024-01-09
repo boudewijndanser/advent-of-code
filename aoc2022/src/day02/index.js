@@ -15,25 +15,6 @@ const output = rawData.split('\n').map(line => line.trim());
  return output
 }
 
-const letterToValue = (string) => {
-  let output = 0
-
-    // Rock
-  if (string === 'A' || string === 'X') {
-    output = 1
-  }
-    // Paper
-  if (string === 'B' || string === 'Y') {
-    output = 2
-  }
-    // Scissors
-  if (string === 'C' || string === 'Z') {
-    output = 3
-  }
-
-  return output
-}
-
 const letterToShape = (string) => {
   let output = ''
 
@@ -111,7 +92,7 @@ const calculateScore = (first, compare) => {
   return output
 }
 
-const scoreTwo = (data) => {
+const scoreOne = (data) => {
 
   let score = 0
   let games = data.map(game => game.split(' '))
@@ -137,17 +118,67 @@ const scoreTwo = (data) => {
 const part1 = (data) => {
   const input = parseInput(dataSelector)
 
-  let answer1 = scoreTwo(input)
+  const answer1 = scoreOne(input)
 
   return answer1
 }
 
+const outcomeMap = {
+  X: 'lose',
+  Y: 'draw',
+  Z: 'win'
+}
+
+let forceOutcome = {
+  rock: {
+    lose: 'Z', // scissors
+    win: 'Y', // paper
+    draw: 'X' // rock
+  },
+  paper: {
+    lose: 'X', // rock
+    win: 'Z', // scissors
+    draw: 'Y' // paper
+  },
+  scissors: {
+    lose: 'Y', // paper
+    win: 'X', // rock
+    draw: 'Z' // scissors
+  }
+}
+
+const scoreTwo = (data) => {
+
+  let score = 0
+  let games = data.map(game => game.split(' '))
+
+  games.map(([p1Letter, p2Letter]) => {
+    
+    const forced = outcomeMap[p2Letter];
+    
+    const player1Shape = letterToShape(p1Letter);
+    
+    const p2NewLetter = forceOutcome[player1Shape][forced];
+    
+    const player1 = elfValues[p1Letter];
+    
+    const player2 = humanValues[p2NewLetter];
+    const player2Shape = letterToShape(p2NewLetter);
+    
+    score += calculateScore(player2Shape, player1Shape);
+    score += player2;
+
+  })
+
+  return score
+}
 
 
 const part2 = (data) => {
   const input = parseInput(dataSelector)
   
-  const answer2 = ''
+  const answer2 = scoreTwo(input)
+
   return answer2
 }
 
@@ -163,10 +194,10 @@ run({
   },
   part2: {
     tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
+      {
+        input: ``,
+        expected: 11258,
+      },
     ],
     solution: part2,
   },
