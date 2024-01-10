@@ -6,6 +6,17 @@ const dataSelector = testing
   ? readFile('../aoc2022/src/day01/example.txt')
   : readFile('../aoc2022/src/day01/input.txt')
 
+const expexted1 = testing 
+? 24000
+: 67622
+
+const expexted2 = testing 
+? 45000
+: 201491
+
+console.log('--- Calorie Counting ---')
+console.log('')
+
 const parseInput = (rawData) => {
  const output = rawData.trim().split('\n')
 
@@ -94,7 +105,7 @@ run({
     tests: [
       {
         input: ``,
-        expected: 67622,
+        expected: expexted1,
       },
     ],
     solution: part1,
@@ -103,7 +114,7 @@ run({
     tests: [
       {
         input: ``,
-        expected: 201491,
+        expected: expexted2,
       },
     ],
     solution: part2,
