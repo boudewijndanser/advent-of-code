@@ -6,16 +6,16 @@ const dataSelector = testing
   ? readFile('../aoc2022/src/day01/example.txt')
   : readFile('../aoc2022/src/day01/input.txt')
 
-  const expexted1 = testing 
+const expexted1 = testing 
   ? 10
   : 100
 
-  const expexted2 = testing 
+const expexted2 = testing 
   ? 20
   : 200
 
-  console.log('--- Title of today ---')
-  console.log('')
+console.log('--- Title of today ---')
+console.log('')
 
 const parseInput = (rawData) => {
  const output = rawData

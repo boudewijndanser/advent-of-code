@@ -6,6 +6,14 @@ const dataSelector = testing
   ? readFile('../aoc2022/src/day02/example.txt')
   : readFile('../aoc2022/src/day02/input.txt')
 
+const expexted1 = testing 
+  ? 15
+  : 14531
+
+const expexted2 = testing 
+  ? 12
+  : 11258
+
 console.log('--- Rock Paper Scissors ---')
 console.log('')
 
@@ -187,7 +195,7 @@ run({
     tests: [
       {
         input: ``,
-        expected: 14531,
+        expected: expexted1,
       },
     ],
     solution: part1,
@@ -196,7 +204,7 @@ run({
     tests: [
       {
         input: ``,
-        expected: 11258,
+        expected: expexted2,
       },
     ],
     solution: part2,
