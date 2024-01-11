@@ -12,7 +12,7 @@ const expexted1 = testing
 
 const expexted2 = testing 
   ? 70
-  : 1000
+  : 2515
 
 console.log('--- Rucksack Reorganization ---')
 console.log('')
@@ -27,9 +27,11 @@ const parseInput = (rawData) => {
 }
 
 const findSharedItems = (input) => {
+
   let shared = []
 
   input.forEach((rucksack) => {
+
     const length = rucksack.length / 2
     const left = rucksack.slice(0, length)
     const right = rucksack.slice(length)
@@ -58,23 +60,70 @@ const getPriority = (character) => {
 
 
 const part1 = (data) => {
+
   const input = parseInput(dataSelector)
 
   const shared = findSharedItems(input)
   const priorities = shared.map((item) => getPriority(item))
 
-  console.log('-> priorities: ')
-  console.log(priorities)
-
   const answer1 = priorities.reduce((acc, cur) => {return acc + cur},0)
-  
+
   return answer1
 }
 
-const part2 = (data) => {
-  const input = parseInput(dataSelector)
-  const answer2 = ''
 
+const getGroupsof3 = (input) => {
+
+  const result = input.map((currentValue, index, array) => {
+    if (index % 3 === 0) {
+      // Collect values in groups of three
+      const group = array.slice(index, index + 3)
+
+      return group
+    }
+
+  })
+
+  const groupedArrays = result.filter((group) => group)
+
+  return groupedArrays
+}
+
+const findSharedItems2 = (input) => {
+
+  let shared = []
+
+  input.forEach((rucksack) => {
+
+    const left = rucksack[0]
+    const right = rucksack[1]
+    const center = rucksack[2]
+
+    const compartment1 = [...new Set(left)]
+    const compartment2 = [...new Set(right)]
+    const compartment3 = [...new Set(center)]
+
+    const overlap = [...compartment1].filter((item) => compartment2.includes(item) && compartment3.includes(item))
+    
+    shared.push(overlap)
+  })
+
+  let unique = [...new Set(shared)].flat()
+
+  return unique
+}
+
+
+const part2 = (data) => {
+
+  const input = parseInput(dataSelector)
+
+  const groupsOf3 = getGroupsof3(input)
+  const shared = findSharedItems2(groupsOf3)
+  const priorities = shared.map((item) => getPriority(item))
+
+  const answer2 = priorities.reduce((acc, cur) => {return acc + cur},0)
+  
   return answer2
 }
 
