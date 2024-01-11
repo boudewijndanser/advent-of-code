@@ -1,17 +1,40 @@
 import run from "aocrunner"
+import { readFile } from '../../../utils/read.js'
 
-const parseInput = (rawInput) => rawInput
+const testing = true
+const dataSelector = testing 
+  ? readFile('../aoc2023/src/day01/example.txt')
+  : readFile('../aoc2023/src/day01/input.txt')
 
-const part1 = (rawInput) => {
-  const input = parseInput(rawInput)
+const expexted1 = testing 
+  ? 10
+  : 100
+
+const expexted2 = testing 
+  ? 20
+  : 200
+
+console.log('--- Title of today ---')
+console.log('')
+
+const parseInput = (rawData) => {
+ const output = rawData
+  
+ return output
+}
+
+const part1 = (data) => {
+  const input = parseInput(dataSelector)
+
+  console.log('---> input: ')
+  console.log(input)
 
   const answer1 = ''
   return answer1
 }
 
-const part2 = (rawInput) => {
-  const input = parseInput(rawInput)
-
+const part2 = (data) => {
+  const input = parseInput(dataSelector)
   const answer2 = ''
   return answer2
 }
@@ -19,19 +42,19 @@ const part2 = (rawInput) => {
 run({
   part1: {
     tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
+      {
+        input: ``,
+        expected: expexted1,
+      },
     ],
     solution: part1,
   },
   part2: {
     tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
+      {
+        input: ``,
+        expected: expexted2,
+      },
     ],
     solution: part2,
   },
