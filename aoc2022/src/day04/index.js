@@ -11,8 +11,8 @@ const expexted1 = testing
   : 538
 
 const expexted2 = testing 
-  ? 2
-  : 200
+  ? 4
+  : 792
 
 console.log('--- Camp Cleanup ---')
 console.log('')
@@ -72,9 +72,48 @@ const part1 = (data) => {
   return answer1
 }
 
+const hasOverlap2 = (sections1, sections2) => {
+  let output = false
+
+  if (sections2.start <= sections1.end && sections2 >= sections1.start) {
+    output = true
+  }
+
+  if (sections2.end >= sections1.start && sections2.end <= sections1.end) {
+    output = true
+  }
+
+  if (sections1.start <= sections2.end && sections1 >= sections2.start) {
+    output = true
+  }
+
+  if (sections1.end >= sections2.start && sections1.end <= sections2.end) {
+    output = true
+  }
+
+  return output
+}
+
+const sumOverlaps2 = (input) => {
+  let output = 0
+
+  input.map((sections) => {
+    let [first, second] = sections
+
+    if (hasOverlap2(first, second)) {
+      output += 1
+    }
+  })
+
+  return output
+}
+
+
+
 const part2 = (data) => {
   const input = parseInput(dataSelector)
-  const answer2 = ''
+
+  const answer2 = sumOverlaps2(input)
   return answer2
 }
 
